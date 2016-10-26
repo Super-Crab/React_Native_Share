@@ -21,7 +21,7 @@
 			必须方法，用于对试图的渲染，可以返回null或者false表示不需要渲染任何东西
 			
 		componentDidMount()
-			在初始化渲染执行之后立即调用一次
+			在初始化渲染执行之后立即调用一次,并且只调用一次
 		
 		componentWillReceiveProps(object nextProps)
 			在组件接收到新的props的时候调用，也就是福组件修改子组件的属性时触发。在初始化渲染的时候，改方法不会调用。可以用于更新state来响应某个prop的改变
