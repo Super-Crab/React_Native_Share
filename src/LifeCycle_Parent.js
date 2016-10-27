@@ -17,9 +17,11 @@ export default class LifeCycle_Parent extends Component {
     }
 
     componentDidMount(){
+        console.log("componentDidMount()+LifeCycle_Parent");
         this.setState({
             name:"jpx"
         });
+        console.log(this.state.name);
     }
 
     render() {

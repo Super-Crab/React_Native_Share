@@ -1,43 +1,43 @@
-1.React-nativeÉúÃüÖÜÆÚ
-	½«ÉúÃüÖÜÆÚ·ÖÎªÈý¸ö½×¶Î£º
-		£¨1£©×é¼þµÚÒ»´Î»æÖÆ½×¶Î£¬Íê³É×é¼þµÄ¼ÓÔØºÍ³õÊ¼»¯
-		£¨2£©×é¼þÔÚÔËÐÐºÍ½»»¥½×¶Î£¬ÓÃÓÚ´¦ÀíÓÃ»§½»»¥£¬»òÕß½ÓÊÜÊÂ¼þ¸üÐÂ½çÃæ
-		£¨3£©×é¼þÐ¶ÔØÏûÍö½×¶Î£¬½øÐÐ×é¼þµÄÇåÀí¹¤×÷
+1.React-nativeç”Ÿå‘½å‘¨æœŸ
+	å°†ç”Ÿå‘½å‘¨æœŸåˆ†ä¸ºä¸‰ä¸ªé˜¶æ®µï¼š
+		ï¼ˆ1ï¼‰ç»„ä»¶ç¬¬ä¸€æ¬¡ç»˜åˆ¶é˜¶æ®µï¼Œå®Œæˆç»„ä»¶çš„åŠ è½½å’Œåˆå§‹åŒ–
+		ï¼ˆ2ï¼‰ç»„ä»¶åœ¨è¿è¡Œå’Œäº¤äº’é˜¶æ®µï¼Œç”¨äºŽå¤„ç†ç”¨æˆ·äº¤äº’ï¼Œæˆ–è€…æŽ¥å—äº‹ä»¶æ›´æ–°ç•Œé¢
+		ï¼ˆ3ï¼‰ç»„ä»¶å¸è½½æ¶ˆäº¡é˜¶æ®µï¼Œè¿›è¡Œç»„ä»¶çš„æ¸…ç†å·¥ä½œ
 		
-	ÉúÃüÖÜÆÚµÄ»Øµ÷º¯Êý
+	ç”Ÿå‘½å‘¨æœŸçš„å›žè°ƒå‡½æ•°
 	
 		object getDefaultProps()
-			ÔÚ×é¼þÀà´´½¨µÄÊ±ºòµ÷ÓÃÒ»´Î£¬È»ºó·µ»ØÖµ±»»º´æÏÂÀ´£¬È«¾Öµ÷ÓÃÒ»´Î£¬ËùÓÐÊµÀý¹²Ïí
+			åœ¨ç»„ä»¶ç±»åˆ›å»ºçš„æ—¶å€™è°ƒç”¨ä¸€æ¬¡ï¼Œç„¶åŽè¿”å›žå€¼è¢«ç¼“å­˜ä¸‹æ¥ï¼Œå…¨å±€è°ƒç”¨ä¸€æ¬¡ï¼Œæ‰€æœ‰å®žä¾‹å…±äº«
 		
 		object getInitialState()
-			ÔÚ×é¼þ¹ÒÔØÖ®Ç°µ÷ÓÃ£¬·µ»ØÖµ×÷Îªthis.stateµÄ³õÊ¼Öµ
-			´Ë·½·¨ÔÚES6¹æ·¶ÖÐ±»È¡µÞ£¬Ê¹ÓÃconstructor(props)·½·¨½øÐÐ³õÊ¼»¯	
+			åœ¨ç»„ä»¶æŒ‚è½½ä¹‹å‰è°ƒç”¨ï¼Œè¿”å›žå€¼ä½œä¸ºthis.stateçš„åˆå§‹å€¼
+			æ­¤æ–¹æ³•åœ¨ES6è§„èŒƒä¸­è¢«å–ç¼”ï¼Œä½¿ç”¨constructor(props)æ–¹æ³•è¿›è¡Œåˆå§‹åŒ–	
 			
 		
 		componentWillMount()
-			³õÊ¼»¯äÖÈ¾Ö´ÐÐÖ®Ç°Á¢¼´µ÷ÓÃ
+			åˆå§‹åŒ–æ¸²æŸ“æ‰§è¡Œä¹‹å‰ç«‹å³è°ƒç”¨
 		
 		ReactComponent render()
-			±ØÐë·½·¨£¬ÓÃÓÚ¶ÔÊÔÍ¼µÄäÖÈ¾£¬¿ÉÒÔ·µ»Ønull»òÕßfalse±íÊ¾²»ÐèÒªäÖÈ¾ÈÎºÎ¶«Î÷
+			å¿…é¡»æ–¹æ³•ï¼Œç”¨äºŽå¯¹è¯•å›¾çš„æ¸²æŸ“ï¼Œå¯ä»¥è¿”å›žnullæˆ–è€…falseè¡¨ç¤ºä¸éœ€è¦æ¸²æŸ“ä»»ä½•ä¸œè¥¿
 			
 		componentDidMount()
-			ÔÚ³õÊ¼»¯äÖÈ¾Ö´ÐÐÖ®ºóÁ¢¼´µ÷ÓÃÒ»´Î,²¢ÇÒÖ»µ÷ÓÃÒ»´Î
+			åœ¨åˆå§‹åŒ–æ¸²æŸ“æ‰§è¡Œä¹‹åŽç«‹å³è°ƒç”¨ä¸€æ¬¡,å¹¶ä¸”åªè°ƒç”¨ä¸€æ¬¡
 		
 		componentWillReceiveProps(object nextProps)
-			ÔÚ×é¼þ½ÓÊÕµ½ÐÂµÄpropsµÄÊ±ºòµ÷ÓÃ£¬Ò²¾ÍÊÇ¸£×é¼þÐÞ¸Ä×Ó×é¼þµÄÊôÐÔÊ±´¥·¢¡£ÔÚ³õÊ¼»¯äÖÈ¾µÄÊ±ºò£¬¸Ä·½·¨²»»áµ÷ÓÃ¡£¿ÉÒÔÓÃÓÚ¸üÐÂstateÀ´ÏìÓ¦Ä³¸öpropµÄ¸Ä±ä
+			åœ¨ç»„ä»¶æŽ¥æ”¶åˆ°æ–°çš„propsçš„æ—¶å€™è°ƒç”¨ï¼Œä¹Ÿå°±æ˜¯ç¦ç»„ä»¶ä¿®æ”¹å­ç»„ä»¶çš„å±žæ€§æ—¶è§¦å‘ã€‚åœ¨åˆå§‹åŒ–æ¸²æŸ“çš„æ—¶å€™ï¼Œæ”¹æ–¹æ³•ä¸ä¼šè°ƒç”¨ã€‚å¯ä»¥ç”¨äºŽæ›´æ–°stateæ¥å“åº”æŸä¸ªpropçš„æ”¹å˜
 			
 		boolean shouldComponentUpdate(object nextProps,object nextState)
-			ÔÚ½ÓÊÜµ½ÐÂµÄprops»òÕßstate,½«ÒªäÖÈ¾Ö®Ç°µ÷ÓÃ£¬Èç¹ûÈ·¶¨ÐÂµÄpropsºÍstate²»»áµ¼ÖÂ×é¼þ¸üÐÂ£¬Ôò´Ë´¦Ó¦¸Ã·µ»Øfalse.·µ»Øtrue½«½øÐÐäÖÈ¾¡£
+			åœ¨æŽ¥å—åˆ°æ–°çš„propsæˆ–è€…state,å°†è¦æ¸²æŸ“ä¹‹å‰è°ƒç”¨ï¼Œå¦‚æžœç¡®å®šæ–°çš„propså’Œstateä¸ä¼šå¯¼è‡´ç»„ä»¶æ›´æ–°ï¼Œåˆ™æ­¤å¤„åº”è¯¥è¿”å›žfalse.è¿”å›žtrueå°†è¿›è¡Œæ¸²æŸ“ã€‚
 		
 		componentWillUpdate(object nextProps,object nextState)
-			ÔÚ½ÓÊÜµ½ÐÂµÄprops»òÕßstate²¢ÇÒshouldComponentUpdate·µ»ØtrueÊ±µ÷ÓÃ
+			åœ¨æŽ¥å—åˆ°æ–°çš„propsæˆ–è€…stateå¹¶ä¸”shouldComponentUpdateè¿”å›žtrueæ—¶è°ƒç”¨
 			
 		componentDidUpdate(object prevProps,object prevState)
-			ÔÚ×é¼þµÄ¸üÐÂÒÑ¾­Í¬²½µ½DOMÖÐÖ®ºóÁ¢¼´±»µ÷ÓÃ
+			åœ¨ç»„ä»¶çš„æ›´æ–°å·²ç»åŒæ­¥åˆ°DOMä¸­ä¹‹åŽç«‹å³è¢«è°ƒç”¨
 			
 		componentWillUnmount()
-			ÔÚ×é¼þ´ÓDOMÖÐÒÆ³ýµÄÊ±ºòÁ¢¼´±»µ÷ÓÃ¡£ÔÚ¸Ã·½·¨ÖÐÖ´ÐÐ±ØÒªµÄÇåÀí£¬±ÈÈçÇå³þÎÞÐ§µÄ¶¨Ê±Æ÷£¬»òÕßÇå³ýÔÚcomponentDidMountÖÐ´´½¨µÄDOMÔªËØ¡£
+			åœ¨ç»„ä»¶ä»ŽDOMä¸­ç§»é™¤çš„æ—¶å€™ç«‹å³è¢«è°ƒç”¨ã€‚åœ¨è¯¥æ–¹æ³•ä¸­æ‰§è¡Œå¿…è¦çš„æ¸…ç†ï¼Œæ¯”å¦‚æ¸…æ¥šæ— æ•ˆçš„å®šæ—¶å™¨ï¼Œæˆ–è€…æ¸…é™¤åœ¨componentDidMountä¸­åˆ›å»ºçš„DOMå…ƒç´ ã€‚
 
 
-		ÒýÓÃÎÄµµ£ºhttp://reactjs.cn/react/docs/component-specs.html£¨¹Ù·½ÎÄµµ¡¢ÉúÃüÖÜÆÚµÄ½éÉÜ£©
+		å¼•ç”¨æ–‡æ¡£ï¼šhttp://reactjs.cn/react/docs/component-specs.htmlï¼ˆå®˜æ–¹æ–‡æ¡£ã€ç”Ÿå‘½å‘¨æœŸçš„ä»‹ç»ï¼‰
 		

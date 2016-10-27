@@ -26,7 +26,7 @@ export default class LifeCycle extends Component {
         console.log("render+LifeCycle");
         console.log(this.state.name);
         return (
-            <View style={{padding:10}}>
+            <View >
             </View>
         );
     };

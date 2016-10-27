@@ -11,16 +11,21 @@ import {
     View,
 } from 'react-native';
 
-import LifeCycle_Parent from './src/LifeCycle_Parent'
+import Ctrip_index from './src/Ctrip_index';
+import LifeCycle_Parent from './src/LifeCycle_Parent';
 class book extends Component {
 
     //渲染试图
     render() {
         console.log("render");
         return (
-            <LifeCycle_Parent></LifeCycle_Parent>
+            <View >
+                <Ctrip_index></Ctrip_index>
+                <LifeCycle_Parent></LifeCycle_Parent>
+            </View>
         );
     };
+
 
 }
 
