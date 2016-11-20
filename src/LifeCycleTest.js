@@ -16,6 +16,8 @@ export default class LifeCycleTest extends Component{
 
     constructor(props){
         super(props);
+        this.state = {times:0}
+        console.log("constructor()");
     }
 
     back(){
@@ -25,6 +27,18 @@ export default class LifeCycleTest extends Component{
         }
     }
 
+    timePlus(){
+        let time=this.state.times;
+        time++;
+        this.setState({
+            times:time
+        })
+    }
+    //组件将要被渲染
+    componentWillMount(){
+        console.log("1componentWillMount()");
+    };
+
     render(){
         return (
             <View style={styles.container}>
@@ -32,8 +46,38 @@ export default class LifeCycleTest extends Component{
                 <TouchableOpacity onPress={this.back.bind(this)}>
                     <Text style={styles.welcome}>back</Text>
                 </TouchableOpacity>
+
+                <Text style={styles.welcome} onPress={this.timePlus.bind(this)}>
+                    点击此处
+                </Text>
+                <Text style={styles.instructions} >
+                    点击了{this.state.times}次
+                </Text>
+
             </View>
         );
+    };
+
+    //渲染完成后
+    componentDidMount(){
+        console.log("2componentDidMount()");
+    };
+    componentWillReceiveProps(nextProps){
+        console.log("componentWillReceiveProps()");
+        console.log(nextProps);
+    };
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("4shouldComponentUpdate()");
+        return true;
+    };
+    componentWillUpdate(nextProps,nextState){
+        console.log("5componentWillUpdate()");
+    };
+    componentDidUpdate(prevProps,prevState){
+        console.log("6componentDidUpdate()");
+    };
+    componentWillUnmount(){
+        console.log("componentWillUnmount()");
     };
 }
 const styles = StyleSheet.create({
