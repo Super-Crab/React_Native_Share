@@ -39,6 +39,31 @@ export default class LifeCycleTest extends Component{
         console.log("1componentWillMount()");
     };
 
+    //渲染完成后
+    componentDidMount(){
+        console.log("2componentDidMount()");
+    };
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("4shouldComponentUpdate()");
+        return true;
+    };
+
+    componentWillReceiveProps(nextProps){
+        console.log("componentWillReceiveProps()");
+    };
+
+    componentWillUpdate(nextProps,nextState){
+        console.log("5componentWillUpdate()");
+    };
+
+    componentDidUpdate(prevProps,prevState){
+        console.log("6componentDidUpdate()");
+    };
+
+    componentWillUnmount(){
+        console.log("componentWillUnmount()");
+    };
+
     render(){
         return (
             <View style={styles.container}>
