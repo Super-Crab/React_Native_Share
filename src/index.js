@@ -13,6 +13,7 @@ import {
 import FirstView from './FirstView.js';
 import LifeCycleTest from './LifeCycleTest.js'
 import ComImage from './Component/Com_image.js'
+import ComDrawerLayoutAndroid from './Component/Com_DrawerLayoutAndroid.js'
 
 export default class index extends Component {
     constructor(props) {
@@ -42,6 +43,12 @@ export default class index extends Component {
                         component: ComImage,
                     })
                     break;
+                case 'ComDrawerLayoutAndroid':
+                    navigator.push({
+                        name: 'ComDrawerLayoutAndroid',
+                        component: ComDrawerLayoutAndroid,
+                    })
+                    break;
             }
         }
     }
@@ -58,6 +65,9 @@ export default class index extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>this.goIndex('Image')}>
                     <Text style={styles.welcome}>Image</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.goIndex('ComDrawerLayoutAndroid')}>
+                    <Text style={styles.welcome}>ComDrawerLayoutAndroid</Text>
                 </TouchableOpacity>
             </View>
         );
