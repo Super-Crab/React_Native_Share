@@ -17,33 +17,36 @@ export default class index extends Component {
     constructor(props) {
         super(props);
     }
-    goIndex(){
+
+    goIndex(id) {
         const { navigator}=this.props;
-        if(navigator){
-            navigator.push({
-                name:'Navigator',
-                component:FirstView,
-            })
+        if (navigator) {
+            switch (id) {
+                case 'Navigator':
+                    navigator.push({
+                        name: 'Navigator',
+                        component: FirstView,
+                    })
+
+                    break;
+                case 'LifeCycleTest':
+                    navigator.push({
+                        name: 'LifeCycleTest',
+                        component: LifeCycleTest,
+                    })
+                    break;
+            }
         }
     }
 
-    goLifeCycle(){
-        const { navigator}=this.props;
-        if(navigator){
-            navigator.push({
-                name:'LifeCycleTest',
-                component:LifeCycleTest,
-            })
-        }
-    }
 
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.goLifeCycle.bind(this)}>
+                <TouchableOpacity onPress={()=>this.goIndex('LifeCycleTest')}>
                     <Text style={styles.welcome}>lifeCycle</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.goIndex.bind(this)}>
+                <TouchableOpacity onPress={()=>this.goIndex('Navigator')}>
                     <Text style={styles.welcome}>Navigator</Text>
                 </TouchableOpacity>
             </View>

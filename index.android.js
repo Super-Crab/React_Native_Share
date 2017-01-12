@@ -10,40 +10,44 @@ import {
     StyleSheet,
     View,
     Text,
-    Navigator
+    Navigator,
+    BackAndroid
 } from 'react-native';
 
-import Ctrip_index from './src/Ctrip_index';
-import LifeCycle_Parent from './src/LifeCycle_Parent';
-import FirstView from './src/FirstView.js';
 import index from './src/index.js';
+
+var _navigator;
+
+//Andrid 返回键监听
+BackAndroid.addEventListener('hardwareBackPress', () => {
+    if (_navigator.getCurrentRoutes().length === 1) {
+        return false;
+    }
+    _navigator.pop();
+    return true;
+});
+
 class book extends Component {
 
     //渲染试图
     render() {
-
         let rootViewName = 'index';
         let rootComponent = index;
         console.log("render");
-        //return (
-        //    <View >
-        //        <LifeCycle_Parent></LifeCycle_Parent>
-        //    </View>
-        //);
         return (
             <Navigator
                 initialRoute={{ name: rootViewName, component: rootComponent }}
                 configureScene={(route) => {
-          return Navigator.SceneConfigs.HorizontalSwipeJump ;
-        }}
+                                return Navigator.SceneConfigs.HorizontalSwipeJump ;
+            }}
                 renderScene={(route, navigator) => {
-          let Component = route.component;
-          return <Component {...route.params} navigator = {navigator} />
-        }}/>
+                        _navigator=navigator;
+                        let Component = route.component;
+                        return <Component {...route.params} navigator = {navigator} />
+            }}
+                />
         );
-    }
-
-;
+    };
 }
 const styles = StyleSheet.create({
     container: {
