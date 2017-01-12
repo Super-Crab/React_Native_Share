@@ -12,6 +12,7 @@ import {
 
 import FirstView from './FirstView.js';
 import LifeCycleTest from './LifeCycleTest.js'
+import ComImage from './Component/Com_image.js'
 
 export default class index extends Component {
     constructor(props) {
@@ -35,6 +36,12 @@ export default class index extends Component {
                         component: LifeCycleTest,
                     })
                     break;
+                case 'Image':
+                    navigator.push({
+                        name: 'Image',
+                        component: ComImage,
+                    })
+                    break;
             }
         }
     }
@@ -48,6 +55,9 @@ export default class index extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>this.goIndex('Navigator')}>
                     <Text style={styles.welcome}>Navigator</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.goIndex('Image')}>
+                    <Text style={styles.welcome}>Image</Text>
                 </TouchableOpacity>
             </View>
         );
