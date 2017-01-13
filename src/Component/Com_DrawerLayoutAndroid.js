@@ -24,7 +24,9 @@ export default class Com_DrawerLayoutAndroid extends Component {
 
         var navigationView = (
             <View style={{flex:1,backgroundColor:'#fff'}}>
-                <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+                <Text style={{margin: 10, fontSize: 15, textAlign: 'center'}}>I'm in the Drawer!</Text>
+                <Text style={{marginTop: 10,marginLeft:20,fontSize: 15, textAlign: 'left'}}>1.功能1</Text>
+                <Text style={{marginTop: 10,marginLeft:20,fontSize: 15, textAlign: 'left'}}>2.功能2</Text>
             </View>
         );
         return (
