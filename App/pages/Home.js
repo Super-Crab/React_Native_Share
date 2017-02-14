@@ -3,14 +3,25 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    WebView,
+    Dimensions,
 } from 'react-native';
 
+const {width,height}=Dimensions.get('window');
+const url="http://www.lcode.org";
 class Home extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.hello}>Home</Text>
+                <WebView
+                    style={{width:width,height:height-20,backgroundColor:'white'}}
+                    source={{uri:url,method: 'GET'}}
+                    javaScriptEnabled={true}
+                    domStorageEnabled={true}
+                    scalesPageToFit={false}
+                    startInLoadingState={true}
+                    />
             </View>
         )
     }

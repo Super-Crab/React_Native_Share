@@ -3,14 +3,17 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight
 } from 'react-native';
-
+var { NativeModules } = require('react-native');
 class Cart extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.hello}>Cart</Text>
+            <View style={styles.container}
+                  >
+                <Text style={styles.hello}
+                onPress={()=>NativeModules.ToastCustomAndroid.show("我是ToastCustomAndroid弹出消息",NativeModules.ToastCustomAndroid.SHORT)}>Cart</Text>
             </View>
         )
     }
