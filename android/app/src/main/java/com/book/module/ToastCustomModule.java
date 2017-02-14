@@ -3,8 +3,12 @@ package com.book.module;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,5 +45,24 @@ public class ToastCustomModule extends ReactContextBaseJavaModule{
     @ReactMethod
     public void show(String message,int duration){
         Toast.makeText(getReactApplicationContext(), message, duration).show();
+    }
+
+    @ReactMethod
+    public void getParams(){
+        WritableMap writableMap = new WritableNativeMap();
+        writableMap.putString("key", "111111");
+        sendTransMisson(getReactApplicationContext(), "getParams", writableMap);
+    }
+
+    /**
+     * @param reactContext
+     * @param eventName    事件名
+     * @param params       传惨
+     */
+    public void sendTransMisson(ReactContext reactContext, String eventName, @Nullable WritableMap params) {
+        reactContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, params);
+
     }
 }
