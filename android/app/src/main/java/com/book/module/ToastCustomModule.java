@@ -2,6 +2,7 @@ package com.book.module;
 
 import android.widget.Toast;
 
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -55,6 +56,8 @@ public class ToastCustomModule extends ReactContextBaseJavaModule{
     }
 
     /**
+     *RCTDeviceEventEmitter方式
+     *
      * @param reactContext
      * @param eventName    事件名
      * @param params       传惨
@@ -65,4 +68,15 @@ public class ToastCustomModule extends ReactContextBaseJavaModule{
                 .emit(eventName, params);
 
     }
+
+    /**
+         * CallBack方式
+         *
+         * @param name
+         * @param callback
+         */
+        @ReactMethod
+        public void callBackTime(String name, Callback callback) {
+            callback.invoke("222222");
+        }
 }

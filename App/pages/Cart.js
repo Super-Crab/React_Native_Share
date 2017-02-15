@@ -15,6 +15,7 @@ class Cart extends Component {
             ToastAndroid.show("DeviceEventEmitter收到消息:" + "\n" + msg.key, ToastAndroid.SHORT)
         });
     }
+
     render() {
         return (
             <View style={styles.container}>
@@ -26,12 +27,31 @@ class Cart extends Component {
                     style={styles.hello}
                     onPress={this.getDeviceEventEmitterTime.bind(this)}
                     >
-                    getParams
+                    RCTDeviceEventEmitter方式
+                </Text>
+
+                <Text
+                    style={styles.hello}
+                    onPress={this.getCallBackTime.bind(this)}
+                    >
+                    CallBack方式
                 </Text>
 
             </View>
         )
     }
+
+    getCallBackTime() {
+        NativeModules.ToastCustomAndroid.callBackTime("",
+            (msg) => {
+                console.log(msg);
+                ToastAndroid.show("CallBack收到消息:" + "\n" + msg, ToastAndroid.SHORT)
+
+            }
+        );
+
+    }
+
     //使用DeviceEventEmitter从native获取到参数
     getDeviceEventEmitterTime() {
         NativeModules.ToastCustomAndroid.getParams();
@@ -42,7 +62,7 @@ var styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        flexDirection:'column',
+        flexDirection: 'column',
     },
     hello: {
         fontSize: 20,
