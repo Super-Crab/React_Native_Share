@@ -15,16 +15,30 @@ import {
 } from 'react-native';
 
 import root from './App/root.js';
+import ToastUtil from './App/utils/ToastUtils.js'
 
 var _navigator;
 
+//标记是第几次按下返回键
+let isFirstQuit = 0;
+
 //Andrid 返回键监听
 BackAndroid.addEventListener('hardwareBackPress', () => {
-    if (_navigator.getCurrentRoutes().length === 1) {
-        return false;
+    if (_navigator.getCurrentRoutes().length > 1) {
+        _navigator.pop();
+        return true;
+    } else {
+        if (isFirstQuit == 0) {
+            ToastUtil.show('再按一次退出应用');
+            isFirstQuit = 1;
+            this.timer = setTimeout(()=> {
+                isFirstQuit = 0;
+            }, 1000)
+            return true;
+        } else if (isFirstQuit == 1) {
+            return false;//返回false，表示执行系统默认实现
+        }
     }
-    _navigator.pop();
-    return true;
 });
 
 class book extends Component {
@@ -47,7 +61,9 @@ class book extends Component {
             }}
                 />
         );
-    };
+    }
+
+;
 }
 const styles = StyleSheet.create({
     container: {

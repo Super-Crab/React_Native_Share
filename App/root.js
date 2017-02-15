@@ -81,13 +81,13 @@ class root extends React.Component {
     _createContentPage(tag) {
         switch (tag) {
             case HOME_TAG:
-                return (<Home />);
+                return (<Home {...this.props}/>);
             case CART_TAG:
-                return (<Cart />);
+                return (<Cart {...this.props}/>);
             case CENTER_TAG:
-                return (<Center />);
+                return (<Center {...this.props}/>);
             case ORDER_TAG:
-                return (<Order />);
+                return (<Order {...this.props}/>);
         }
     }
 
