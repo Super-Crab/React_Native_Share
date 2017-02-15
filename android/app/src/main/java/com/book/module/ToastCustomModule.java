@@ -3,6 +3,7 @@ package com.book.module;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -79,4 +80,18 @@ public class ToastCustomModule extends ReactContextBaseJavaModule{
         public void callBackTime(String name, Callback callback) {
             callback.invoke("222222");
         }
+
+    /**
+     * Promise方式
+     * @param name
+     * @param promise
+     */
+    @ReactMethod
+    public void sendPromiseTime(String name, Promise promise) {
+        WritableMap writableMap=new WritableNativeMap();
+        writableMap.putString("age","20");
+        writableMap.putString("time","33333");
+        promise.resolve(writableMap);
+
+    }
 }

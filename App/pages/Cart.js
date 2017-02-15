@@ -25,23 +25,44 @@ class Cart extends Component {
                 </Text>
                 <Text
                     style={styles.hello}
-                    onPress={this.getDeviceEventEmitterTime.bind(this)}
+                    onPress={this.getDeviceEventEmitter.bind(this)}
                     >
                     RCTDeviceEventEmitter方式
                 </Text>
 
                 <Text
                     style={styles.hello}
-                    onPress={this.getCallBackTime.bind(this)}
+                    onPress={this.getCallBack.bind(this)}
                     >
                     CallBack方式
+                </Text>
+
+                <Text
+                    style={styles.hello}
+                    onPress={this.getPromise.bind(this)}
+                    >
+                    Promise方式
                 </Text>
 
             </View>
         )
     }
 
-    getCallBackTime() {
+    getPromise() {
+        NativeModules.ToastCustomAndroid.sendPromiseTime("").then(msg=> {
+            console.log("年龄:" + msg.age + "/n" + "时间:" + msg.time);
+            ToastAndroid.show("Promise收到消息:" + "\n" + "年龄:" + msg.age + "时间:" + msg.time, ToastAndroid.SHORT)
+
+            this.setState({
+                age: msg.age,
+                time: msg.time,
+            })
+        }).catch(error=> {
+            console.log(error);
+        });
+    }
+
+    getCallBack() {
         NativeModules.ToastCustomAndroid.callBackTime("",
             (msg) => {
                 console.log(msg);
@@ -53,7 +74,7 @@ class Cart extends Component {
     }
 
     //使用DeviceEventEmitter从native获取到参数
-    getDeviceEventEmitterTime() {
+    getDeviceEventEmitter() {
         NativeModules.ToastCustomAndroid.getParams();
     }
 }
