@@ -11,8 +11,10 @@ import {
 import ToastUtil from "../utils/ToastUtils.js"
 
 import WebViewDemo from "../ex/WebViewDemo.js"
+import BannerDemo from "../ex/BannerDemo.js"
 
 const TAG_WEBVIEW = 'WebViewDemo';
+const TAG_BANNER = 'BannerDemo';
 
 class Home extends React.Component {
 
@@ -31,7 +33,7 @@ class Home extends React.Component {
         // 初始状态
         this.state = {
             dataSource: ds.cloneWithRows([
-                'WebViewDemo', 'Banners', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+                'WebViewDemo', 'BannerDemo', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
             ])
         };
     }
@@ -72,6 +74,12 @@ class Home extends React.Component {
                 navigator.push({
                     name: rowData,
                     component: WebViewDemo,
+                })
+                break;
+            case TAG_BANNER:
+                navigator.push({
+                    name: rowData,
+                    component: BannerDemo,
                 })
                 break;
         }
