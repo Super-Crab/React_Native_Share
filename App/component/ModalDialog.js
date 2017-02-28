@@ -16,7 +16,7 @@ let totalWidth = Dimensions.get('window').width;//宽
 let totalHeight = Dimensions.get('window').height;//高
 
 
-export default class KaBaoModal extends Component {
+export default class ModalDialog extends Component {
 
     // 构造
     constructor(props) {
