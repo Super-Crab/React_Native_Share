@@ -6,15 +6,18 @@ import {
     ListView,
     Text,
     TouchableOpacity,
+    InteractionManager
 } from 'react-native';
 
 import ToastUtil from "../utils/ToastUtils.js"
 
 import WebViewDemo from "../ex/WebViewDemo.js"
 import BannerDemo from "../ex/BannerDemo.js"
+import ModalDemo from "../ex/ModalDemo.js"
 
 const TAG_WEBVIEW = 'WebViewDemo';
 const TAG_BANNER = 'BannerDemo';
+const TAG_MODAL='ModalDemo';
 
 class Home extends React.Component {
 
@@ -33,7 +36,7 @@ class Home extends React.Component {
         // 初始状态
         this.state = {
             dataSource: ds.cloneWithRows([
-                'WebViewDemo', 'BannerDemo', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+                'WebViewDemo', 'BannerDemo', 'ModalDemo', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
             ])
         };
     }
@@ -67,22 +70,32 @@ class Home extends React.Component {
     _onItemClick(rowData, rowId) {
 
         ToastUtil.show("点击了" + rowData + rowId);
-        console.log(rowData);
+
+        let nextViewName = 'index';
+        let nextComponent ;
         const {navigator}=this.props;
         switch (rowData) {
             case TAG_WEBVIEW:
-                navigator.push({
-                    name: rowData,
-                    component: WebViewDemo,
-                })
+                nextComponent=WebViewDemo;
+                nextViewName=rowData;
                 break;
             case TAG_BANNER:
-                navigator.push({
-                    name: rowData,
-                    component: BannerDemo,
-                })
+                nextComponent=BannerDemo;
+                nextViewName=rowData;
+                break;
+            case TAG_MODAL:
+                nextComponent=ModalDemo;
+                nextViewName=rowData;
                 break;
         }
+
+        //解决切换卡顿问题
+        InteractionManager.runAfterInteractions(()=> {
+            navigator.push({
+                name: nextViewName,
+                component: nextComponent,
+            });
+        });
     }
 }
 var styles = StyleSheet.create({
