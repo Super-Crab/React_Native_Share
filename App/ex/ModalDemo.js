@@ -4,43 +4,58 @@
 import React,{Component} from 'react';
 import {
     Modal,
-    Text,TouchableHighlight,
-    View
+    Text,
+    TouchableOpacity,
+    View,
+    StyleSheet
 }from 'react-native';
+
+import ModalDialog from '../component/ModalDialog.js'
 
 export default class ModalDemo extends Component {
 
+// 构造
     constructor(props) {
         super(props);
-        this.state = {modalVisible: false};
+        // 初始状态
+        this.state = {
+            isDialogVisible: false
+        };
     }
 
-    setModalVisible(visible) {
-        this.setState({modalVisible: visible});
+    showDialog(){
+        this.setState({isDialogVisible:true});
+    }
+
+    hideDialog(){
+        this.setState({isDialogVisible:false});
     }
 
     render() {
         return (
-            <View style={{marginTop: 22}}>
-                <Modal
-                    animationType={"slide"}
-                    transparent={false}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {alert("Modal has been closed.")}}
-                    >
-                    <View style={{marginTop: 22}}>
-                        <View>
-                            <Text>Hello World!</Text>
-                            <TouchableHighlight onPress={() => {this.setModalVisible(!this.state.modalVisible) }}>
-                                <Text>Hide Modal</Text>
-                            </TouchableHighlight>
-                        </View>
-                    </View>
-                </Modal>
-                <TouchableHighlight onPress={() => {this.setModalVisible(true)}}>
-                    <Text>Show Modal</Text>
-                </TouchableHighlight>
+            <View style={styles.container}>
+                <ModalDialog
+                    _dialogVisible={this.state.isDialogVisible}
+                    _dialogLeftBtnAction={()=> {this.hideDialog()}}
+                    _dialogRightBtnAction={()=>{this.hideDialog()}}
+                    />
+                <TouchableOpacity onPress={()=>this.showDialog()}>
+                    <Text style={styles.hello}>dialog</Text>
+                </TouchableOpacity>
+
             </View>
         );
     }
 }
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    hello: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+});
