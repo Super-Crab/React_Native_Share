@@ -30,7 +30,7 @@ export default class KaBaoModal extends Component {
         _dialogRightBtnTitle: React.PropTypes.string,
         _dialogLeftBtnAction: React.PropTypes.func.isRequired,
         _dialogRightBtnAction: React.PropTypes.func.isRequired,
-        _dialogVisible:React.PropTypes.bool,
+        _dialogVisible: React.PropTypes.bool,
     }
 
     static defaultProps = {
@@ -38,17 +38,19 @@ export default class KaBaoModal extends Component {
         _dialogContent: '是否退出',
         _dialogLeftBtnTitle: '取消',
         _dialogRightBtnTitle: '确定',
-        _dialogVisible:false,
+        _dialogVisible: false,
     }
 
     render() {
         // onPress事件直接与父组件传递进来的属性挂接
         return (
-            <View style={styles.confirmCont}>
-                <Modal
-                    visible={this.props._dialogVisible}
-                    onRequestClose={() => {}}
-                    >
+            <Modal
+                visible={this.props._dialogVisible}
+                transparent={true}
+                onRequestClose={() => {}}
+                >
+                <View style={styles.confirmCont}>
+
                     <View style={styles.dialogStyle}>
                         <Text style={styles.textPrompt}>
                             {this.props._dialogTitle}
@@ -63,8 +65,8 @@ export default class KaBaoModal extends Component {
                             {this.props._dialogRightBtnTitle}
                         </Text>
                     </View>
-                </Modal>
-            </View>
+                </View>
+            </Modal>
         );
     }
 }

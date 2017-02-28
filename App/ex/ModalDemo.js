@@ -55,7 +55,7 @@ var styles = StyleSheet.create({
     },
     hello: {
         fontSize: 20,
-        textAlign: 'center',
         margin: 10,
+        textAlign:'left'
     },
 });
