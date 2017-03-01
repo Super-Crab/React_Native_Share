@@ -12,8 +12,8 @@ import {
 } from 'react-native';
 
 let Dimensions = require('Dimensions');
-let totalWidth = Dimensions.get('window').width;//宽
-let totalHeight = Dimensions.get('window').height;//高
+let SCREEN_WIDTH = Dimensions.get('window').width;//宽
+let SCREEN_HEIGHT = Dimensions.get('window').height;//高
 
 
 export default class ModalDialog extends Component {
@@ -49,21 +49,32 @@ export default class ModalDialog extends Component {
                 transparent={true}
                 onRequestClose={() => {}}
                 >
-                <View style={styles.confirmCont}>
+                <View style={styles.bg}>
+                    <View style={styles.dialog}>
+                        <View style={styles.dialogTitleView}>
+                            <Text style={styles.dialogTitle}>
+                                {this.props._dialogTitle}
+                            </Text>
+                        </View>
+                        <View style={styles.dialogContentView}>
+                            <Text style={styles.dialogContent}>
+                                {this.props._dialogContent}
+                            </Text>
+                        </View>
 
-                    <View style={styles.dialogStyle}>
-                        <Text style={styles.textPrompt}>
-                            {this.props._dialogTitle}
-                        </Text>
-                        <Text style={styles.textContext}>
-                            {this.props._dialogContent}
-                        </Text>
-                        <Text style={styles.yesButton} onPress={this.props._dialogLeftBtnAction}>
-                            {this.props._dialogLeftBtnTitle}
-                        </Text>
-                        <Text style={styles.cancelButton} onPress={this.props._dialogRightBtnAction}>
-                            {this.props._dialogRightBtnTitle}
-                        </Text>
+                        <View style={styles.dialogBtnView}>
+                            <TouchableHighlight style={styles.dialogBtnViewItem} onPress={this.props._dialogLeftBtnAction}>
+                                <Text style={styles.leftButton}>
+                                    {this.props._dialogLeftBtnTitle}
+                                </Text>
+                            </TouchableHighlight>
+                            <TouchableHighlight style={styles.dialogBtnViewItem} onPress={this.props._dialogRightBtnAction}>
+                                <Text style={styles.rightButton}>
+                                    {this.props._dialogRightBtnTitle}
+                                </Text>
+                            </TouchableHighlight>
+                        </View>
+
                     </View>
                 </View>
             </Modal>
@@ -72,70 +83,65 @@ export default class ModalDialog extends Component {
 }
 
 const styles = StyleSheet.create({
-    confirmCont: {  //全屏显示 半透明 可以看到之前的控件但是不能操作了
-        position: 'absolute',  //声明绝对定位
-        top: 0,
-        width: totalWidth,
-        height: totalHeight,
-        backgroundColor: 'rgba(52,52,52,0.5)'  //rgba  a0-1  其余都是16进制数
+    bg: {  //全屏显示 半透明 可以看到之前的控件但是不能操作了
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT,
+        backgroundColor: 'rgba(52,52,52,0.5)',  //rgba  a0-1  其余都是16进制数
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    dialogStyle: {
-        position: 'absolute',
-        left: totalWidth / 10, // 定义Dilaog起点位置
-        top: totalHeight * 0.28,
-        width: totalWidth * 0.8,
-        height: totalHeight * 0.35,
+    dialog: {
+        width: SCREEN_WIDTH * 0.8,
+        height: SCREEN_HEIGHT * 0.28,
         backgroundColor: 'white',
-        borderRadius: 8
+        borderRadius: 8,
     },
-    textPrompt: {
-        position: 'absolute',
-        textAlign: 'center',
-        width: totalWidth * 0.8,
-        height: totalHeight * 0.1,
-        fontSize: 18,
-        top: 0,
-        color: '#000000',
+    dialogTitleView: {
+        width: SCREEN_WIDTH * 0.8,
+        height: SCREEN_HEIGHT * 0.08,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#EEEEEE',
         borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        paddingTop: totalHeight * 0.034,
+        borderTopRightRadius: 8
     },
-    textContext: {
-        position: 'absolute',
+    dialogTitle: {
         textAlign: 'center',
-        top: totalHeight * 0.09,
-        width: totalWidth * 0.8,
-        height: totalHeight * 0.15,
+        fontSize: 18,
+        color: '#000000',
+    },
+    dialogContentView: {
+        width: SCREEN_WIDTH * 0.8,
+        height: SCREEN_HEIGHT * 0.12,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    dialogContent: {
+        textAlign: 'center',
         fontSize: 16,
         color: '#4A4A4A',
-        backgroundColor: '#FFFFFF',
-        paddingTop: totalHeight * 0.042,
     },
-    yesButton: {
-        position: 'absolute',
-        width: totalWidth * 0.395,
-        height: totalHeight * 0.1,
+    dialogBtnView: {
+        width: SCREEN_WIDTH * 0.8,
+        height: SCREEN_HEIGHT * 0.08,
+        flexDirection: 'row',
+    },
+    dialogBtnViewItem: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#E5F2FF',
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+    },
+    leftButton: {
         fontSize: 18,
         color: '#007AFF',
-        bottom: 0,
-        right: 0,
-        textAlign: 'center',
-        borderBottomRightRadius: 8,
-        paddingTop: totalHeight * 0.032,
-    },
-    cancelButton: {
-        position: 'absolute',
-        width: totalWidth * 0.395,
-        height: totalHeight * 0.1,
-        backgroundColor: '#E5F2FF',
-        fontSize: 18,
-        color: '#727677',
-        bottom: 0,
-        left: 0,
-        textAlign: 'center',
         borderBottomLeftRadius: 8,
-        paddingTop: totalHeight * 0.032,
+    },
+    rightButton: {
+        fontSize: 18,
+        color: '#007AFF',
+        borderBottomRightRadius: 8,
     }
 });
