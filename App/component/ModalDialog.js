@@ -24,13 +24,13 @@ export default class ModalDialog extends Component {
     }
 
     static propTypes = {
-        _dialogTitle: React.PropTypes.string,
-        _dialogContent: React.PropTypes.string,
-        _dialogLeftBtnTitle: React.PropTypes.string,
-        _dialogRightBtnTitle: React.PropTypes.string,
-        _dialogLeftBtnAction: React.PropTypes.func.isRequired,
-        _dialogRightBtnAction: React.PropTypes.func.isRequired,
-        _dialogVisible: React.PropTypes.bool,
+        _dialogTitle: React.PropTypes.string, //标题
+        _dialogContent: React.PropTypes.string, //内容
+        _dialogLeftBtnTitle: React.PropTypes.string,    //左按键标题
+        _dialogRightBtnTitle: React.PropTypes.string,   //右按键标题
+        _dialogLeftBtnAction: React.PropTypes.func.isRequired,  //左点击方法
+        _dialogRightBtnAction: React.PropTypes.func.isRequired, //右点击方法
+        _dialogVisible: React.PropTypes.bool,       //显示还是隐藏
     }
 
     static defaultProps = {
