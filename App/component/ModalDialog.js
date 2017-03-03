@@ -47,7 +47,7 @@ export default class ModalDialog extends Component {
             <Modal
                 visible={this.props._dialogVisible}
                 transparent={true}
-                onRequestClose={() => {}}
+                onRequestClose={() => {}} //如果是Android设备 必须有此方法
                 >
                 <View style={styles.bg}>
                     <View style={styles.dialog}>
