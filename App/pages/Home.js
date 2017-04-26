@@ -11,13 +11,7 @@ import {
 
 import ToastUtil from "../utils/ToastUtils.js"
 
-import WebViewDemo from "../ex/WebViewDemo.js"
-import BannerDemo from "../ex/BannerDemo.js"
-import ModalDemo from "../ex/ModalDemo.js"
-
-const TAG_WEBVIEW = 'WebViewDemo';
-const TAG_BANNER = 'BannerDemo';
-const TAG_MODAL='ModalDemo';
+import {getNavigator} from '../router';
 
 class Home extends React.Component {
 
@@ -36,7 +30,7 @@ class Home extends React.Component {
         // 初始状态
         this.state = {
             dataSource: ds.cloneWithRows([
-                'WebViewDemo', 'BannerDemo', 'ModalDemo', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+                'WebViewDemo', 'BannerDemo', 'ModalDemo', 'AnimatedDemo',
             ])
         };
     }
@@ -71,29 +65,10 @@ class Home extends React.Component {
 
         ToastUtil.show("点击了" + rowData + rowId);
 
-        let nextViewName = 'index';
-        let nextComponent ;
-        const {navigator}=this.props;
-        switch (rowData) {
-            case TAG_WEBVIEW:
-                nextComponent=WebViewDemo;
-                nextViewName=rowData;
-                break;
-            case TAG_BANNER:
-                nextComponent=BannerDemo;
-                nextViewName=rowData;
-                break;
-            case TAG_MODAL:
-                nextComponent=ModalDemo;
-                nextViewName=rowData;
-                break;
-        }
-
         //解决切换卡顿问题
         InteractionManager.runAfterInteractions(()=> {
-            navigator.push({
-                name: nextViewName,
-                component: nextComponent,
+            getNavigator().push({
+                name: rowData
             });
         });
     }
