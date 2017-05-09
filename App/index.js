@@ -8,14 +8,13 @@ import {
 } from 'react-native';
 
 import {getRouteMap, registerNavigator} from '../App/router';
-import Main from '../App/main'
+import Main from './pages/Main'
 import ToastUtil from './utils/ToastUtils';
 import PageConfig from '../App/config/pageConfig'
 
 let lastClickTime = 0;
 
 export default class app extends Component {
-
     // 构造
     constructor(props) {
         super(props);
@@ -23,19 +22,16 @@ export default class app extends Component {
         this.onBackAndroid = this.onBackAndroid.bind(this);
         this.configureScene = this.configureScene.bind(this);
     }
-
     componentWillMount() {
         if (Platform.OS === 'android') {
             BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);
         }
     }
-
     componentWillUnmount() {
         if (Platform.OS === 'android') {
             BackAndroid.removeEventListener('hardwareBackPress', this.onBackAndroid);
         }
     }
-
     //渲染试图
     render() {
         return (
@@ -46,9 +42,6 @@ export default class app extends Component {
                 />
         );
     }
-
-
-
     //出场动画
     configureScene(route) {
         let sceneAnimation = getRouteMap().get(route.name).sceneAnimation;
@@ -72,7 +65,6 @@ export default class app extends Component {
         }
         return   <Component {...route}/>;
     }
-
     onBackAndroid() {
         const routers = this.navigator.getCurrentRoutes();
         if (routers.length > 1) {

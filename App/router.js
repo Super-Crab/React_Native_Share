@@ -4,7 +4,7 @@ import {
 
 import PAGE_CONFIG from './config/pageConfig'
 
-import Main from '../App/main.js';
+import Main from '../App/pages/Main';
 import AnimatedDemo from './ex/AnimatedDemo';
 import BannerDemo from './ex/BannerDemo';
 import ModalDemo from './ex/ModalDemo';
@@ -32,18 +32,18 @@ routeMap.set('WebViewDemo',{
     component:WebViewDemo
 });
 
+
+
+
 export function registerNavigator(tempNavigator) {
     if (navigator) {
         return;
     }
     navigator = tempNavigator;
-
 }
-
 export function getNavigator() {
     return navigator;
 }
-
 export function getRouteMap() {
     return routeMap;
 }
