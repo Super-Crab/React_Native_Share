@@ -4,18 +4,22 @@ import {
 
 import PAGE_CONFIG from './config/pageConfig'
 
-import Main from '../App/pages/Main';
 import AnimatedDemo from './ex/AnimatedDemo';
 import BannerDemo from './ex/BannerDemo';
 import ModalDemo from './ex/ModalDemo';
 import WebViewDemo from './ex/WebViewDemo';
-
+import Login from './pages/Login'
+import Main from './pages/Main';
 let navigator;
 
 const routeMap = new Map();
 
 routeMap.set('Main',{
     component:Main,
+});
+
+routeMap.set('Login',{
+    component:Login,
     sceneAnimation: Navigator.SceneConfigs.FadeAndroid
 });
 

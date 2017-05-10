@@ -38,7 +38,7 @@ export default class app extends Component {
             <Navigator
                 configureScene={this.configureScene}
                 renderScene={this.renderScene}
-                initialRoute={{name: 'Main'}}
+                initialRoute={{name: 'Login'}}
                 />
         );
     }
