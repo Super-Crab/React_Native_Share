@@ -14,22 +14,22 @@ import Center from './pages/Center';
 import Order from './pages/Order';
 
 const HOME_TAG='home';
-const HOME_TITLE='÷˜“≥';
+const HOME_TITLE='‰∏ªÈ°µ';
 const HOME_NORMAL=require('../imgs/ic_tab_home.png');
 const HOME_FOCUS=require('../imgs/ic_tab_home_press.png');
 
 const CART_TAG='cart';
-const CART_TITLE='π∫ŒÔ≥µ';
+const CART_TITLE='Ë¥≠Áâ©ËΩ¶';
 const CART_NORMAL=require('../imgs/ic_tab_cart.png');
 const CART_FOCUS=require('../imgs/ic_tab_cart_press.png');
 
 const CENTER_TAG='center';
-const CENTER_TITLE='Œ“µƒ';
+const CENTER_TITLE='ÊàëÁöÑ';
 const CENTER_NORMAL=require('../imgs/ic_tab_center.png');
 const CENTER_FOCUS=require('../imgs/ic_tab_center_press.png');
 
 const ORDER_TAG='order';
-const ORDER_TITLE='∂©µ•';
+const ORDER_TITLE='ËÆ¢Âçï';
 const ORDER_NORMAL=require('../imgs/ic_tab_order.png');
 const ORDER_FOCUS=require('../imgs/ic_tab_order_press.png');
 
@@ -54,7 +54,7 @@ class root extends React.Component {
     }
 
     /**
-     * ‰÷»ætab÷–µƒitem
+     * ÔøΩÔøΩ»ætabÔøΩ–µÔøΩitem
      * @param tag
      * @param title
      * @param iconNormal

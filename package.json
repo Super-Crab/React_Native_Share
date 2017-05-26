@@ -7,10 +7,11 @@
   },
   "dependencies": {
     "react": "15.3.2",
-    "react-native": "0.34.1",
+    "react-native": "^0.37.0",
     "react-native-banner": "^0.1.0",
     "react-native-swiper": "^1.5.2",
     "react-native-tab-navigator": "^0.3.3",
+    "react-native-scrollable-tab-view": "^0.6.0",
     "react-timer-mixin": "^0.13.3",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",

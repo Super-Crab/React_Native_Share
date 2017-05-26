@@ -9,7 +9,7 @@ import BannerDemo from './ex/BannerDemo';
 import ModalDemo from './ex/ModalDemo';
 import WebViewDemo from './ex/WebViewDemo';
 import Login from './pages/Login'
-import Main from './pages/Main';
+import Main from './Main';
 let navigator;
 
 const routeMap = new Map();

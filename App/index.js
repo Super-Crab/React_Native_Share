@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {getRouteMap, registerNavigator} from '../App/router';
-import Main from './pages/Main'
+import Main from './Main'
 import ToastUtil from './utils/ToastUtils';
 import PageConfig from '../App/config/pageConfig'
 
